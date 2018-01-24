@@ -1,12 +1,32 @@
+
 * {
     box-sizing: border-box;
+    font-family: 'Barlow', sans-serif;
+    text-decoration-skip: ink;
 }
 
 html {
     height: 100%;
 }
 
+h1.title {
+    font-family: 'Vollkorn', serif;
+    font-size: 3em;
+    line-height: 1em;
+    margin: 0.5em;
+    filter: drop-shadow(0px 3px 0 #A7260840);
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    color: #08090A;
+}
+
 body {
     margin: 0;
     padding: 20px;
+    background: #F4F7F5;
+}
+
+.gatsby-highlight pre {
+    border-radius: 5px;
 }

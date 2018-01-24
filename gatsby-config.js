@@ -84,7 +84,14 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`barlow`, `vollkorn:700`]
+      }
+    },
     "gatsby-plugin-offline",
+    "gatsby-plugin-styled-components",
     {
       resolve: "gatsby-plugin-feed",
       options: {

@@ -1,5 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
+import fetch from 'isomorphic-fetch';
 import UserInfo from "../components/UserInfo/UserInfo";
 import Disqus from "../components/Disqus/Disqus";
 import PostTags from "../components/PostTags/PostTags";
@@ -9,10 +10,6 @@ import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
 import "./post.css";
 
-async function getRandArchillect() {
-  
-}
-
 export default class PostTemplate extends React.Component {
   constructor() {
     super();
@@ -21,11 +18,13 @@ export default class PostTemplate extends React.Component {
     }
   }
 
-  async componentDidMount() {
-    const json = await (await fetch('https://archillect-api.now.sh/random')).json()
-    this.setState({
-      cover: json.source
-    })
+  async componentWillMount() {
+    if (!this.props.data.markdownRemark.frontmatter.cover) {
+      const json = await (await fetch('https://archillect-api.now.sh/random')).json()
+      this.setState({
+        cover: json.source
+      }) 
+    }
   }
 
   render() {
@@ -47,7 +46,7 @@ export default class PostTemplate extends React.Component {
         <SEO postPath={slug} postNode={postNode} postSEO />
         <div className="post-container">
           <div className="header-img-container">
-            <img className="header-img" src={this.state.cover} alt=""/>
+            <img className="header-img" src={post.cover || this.state.cover} alt="" />
           </div>
           
           <h1 className="title">{post.title}</h1>

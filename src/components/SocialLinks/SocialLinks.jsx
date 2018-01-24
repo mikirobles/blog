@@ -1,7 +1,23 @@
 import React, { Component } from "react";
+import styled from 'styled-components';
 import { ShareButtons, ShareCounts, generateShareIcon } from "react-share";
 import config from "../../../data/SiteConfig";
-import "./SocialLinks.css";
+
+const SocialLinksContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin: 2em 0;
+  svg {
+    border-radius: 5px;
+  }
+  .share-count {
+    text-align: center;
+  }
+`
 
 class SocialLinks extends Component {
   render() {
@@ -33,18 +49,18 @@ class SocialLinks extends Component {
     const filter = count => (count > 0 ? count : "");
 
     return (
-      <div className="social-links">
+      <SocialLinksContainer>
         <RedditShareButton url={url} title={post.title}>
-          <RedditIcon round size={iconSize} />
+          <RedditIcon size={iconSize} />
           <RedditShareCount url={url}>
             {count => <div className="share-count">{filter(count)}</div>}
           </RedditShareCount>
         </RedditShareButton>
         <TwitterShareButton url={url} title={post.title}>
-          <TwitterIcon round size={iconSize} />
+          <TwitterIcon size={iconSize} />
         </TwitterShareButton>
         <GooglePlusShareButton url={url}>
-          <GooglePlusIcon round size={iconSize} />
+          <GooglePlusIcon size={iconSize} />
           <GooglePlusShareCount url={url}>
             {count => <div className="share-count">{filter(count)}</div>}
           </GooglePlusShareCount>
@@ -55,7 +71,7 @@ class SocialLinks extends Component {
           picture={post.cover}
           description={postNode.excerpt}
         >
-          <FacebookIcon round size={iconSize} />
+          <FacebookIcon size={iconSize} />
           <FacebookShareCount url={url}>
             {count => <div className="share-count">{filter(count)}</div>}
           </FacebookShareCount>
@@ -65,15 +81,15 @@ class SocialLinks extends Component {
           title={post.title}
           description={postNode.excerpt}
         >
-          <LinkedinIcon round size={iconSize} />
+          <LinkedinIcon size={iconSize} />
           <LinkedinShareCount url={url}>
             {count => <div className="share-count">{filter(count)}</div>}
           </LinkedinShareCount>
         </LinkedinShareButton>
         <TelegramShareButton url={url}>
-          <TelegramIcon round size={iconSize} />
+          <TelegramIcon size={iconSize} />
         </TelegramShareButton>
-      </div>
+      </SocialLinksContainer>
     );
   }
 }
