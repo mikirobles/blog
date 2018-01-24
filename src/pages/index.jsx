@@ -1,6 +1,8 @@
 import React from "react";
 import Helmet from "react-helmet";
 import PostListing from "../components/PostListing/PostListing";
+import HeaderImg from "../components/HeaderImg/HeaderImg";
+import Footer from "../components/Footer/Footer";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 
@@ -11,8 +13,10 @@ class Index extends React.Component {
       <div className="index-container">
         <Helmet title={config.siteTitle} />
         <SEO postEdges={postEdges} />
-        <h1>welcome 2 my blag</h1>
+        <HeaderImg />
+        <h1 className="title">thoughts &amp; tips &amp; stuff</h1>
         <PostListing postEdges={postEdges} />
+        <Footer config={config} />
       </div>
     );
   }

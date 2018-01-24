@@ -1,5 +1,25 @@
 import React from "react";
 import Link from "gatsby-link";
+import styled from 'styled-components';
+import { STYLE_VARS } from '../../constants';
+
+const Post = styled.div`
+    a {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 3em 0;
+      text-decoration: none;
+      span {
+        margin-top: 0.5em;
+        color: ${STYLE_VARS.colors.accent};
+      }
+      > * {
+        margin: 0;
+      }
+    }
+`
 
 class PostListing extends React.Component {
   getPostList() {
@@ -19,13 +39,17 @@ class PostListing extends React.Component {
   }
   render() {
     const postList = this.getPostList();
+    console.log(postList)
     return (
       <div>
         {/* Your post list here. */
         postList.map(post => (
-          <Link to={post.path} key={post.title}>
-            <h1>{post.title}</h1>
-          </Link>
+          <Post key={post.title}>
+            <Link to={post.path}>
+              <h1>{post.title}</h1>
+              <span>{post.date}</span>
+            </Link>
+          </Post>
         ))}
       </div>
     );

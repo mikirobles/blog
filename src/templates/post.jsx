@@ -1,7 +1,8 @@
 import React from "react";
 import Helmet from "react-helmet";
-import fetch from 'isomorphic-fetch';
+import Link from "gatsby-link";
 import UserInfo from "../components/UserInfo/UserInfo";
+import HeaderImg from "../components/HeaderImg/HeaderImg";
 import Disqus from "../components/Disqus/Disqus";
 import PostTags from "../components/PostTags/PostTags";
 import SocialLinks from "../components/SocialLinks/SocialLinks";
@@ -11,22 +12,6 @@ import "./b16-tomorrow-dark.css";
 import "./post.css";
 
 export default class PostTemplate extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      cover: ''
-    }
-  }
-
-  async componentWillMount() {
-    if (!this.props.data.markdownRemark.frontmatter.cover) {
-      const json = await (await fetch('https://archillect-api.now.sh/random')).json()
-      this.setState({
-        cover: json.source
-      }) 
-    }
-  }
-
   render() {
     const { slug } = this.props.pathContext;
     const postNode = this.props.data.markdownRemark;
@@ -45,10 +30,7 @@ export default class PostTemplate extends React.Component {
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
         <div className="post-container">
-          <div className="header-img-container">
-            <img className="header-img" src={post.cover || this.state.cover} alt="" />
-          </div>
-          
+          <HeaderImg src={post.cover} alt={post.title} />
           <h1 className="title">{post.title}</h1>
           <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
           <div className="post-meta">
