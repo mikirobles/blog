@@ -18,7 +18,7 @@ class Footer extends Component {
           <h4>{copyright}</h4>
 
           <h4>
-            source
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/mikirobles/blog">source</a>
           </h4>
         </div>
       </footer>
