@@ -20,9 +20,9 @@ So this is how I got it working:
   
 ### 1. Install 'wow.js' via npm  
 ```
-    > npm install wow.js
+    > npm add wow.js
 ```  
-    
+  
   ---  
   
 
@@ -39,7 +39,9 @@ So this is how I got it working:
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css"/>
     </Head>
 ```
-
+  
+  ---  
+  
 
 ### 3. Execute it, and animate it!
 
