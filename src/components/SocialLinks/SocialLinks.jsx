@@ -23,7 +23,7 @@ class SocialLinks extends Component {
   render() {
     const { postNode, postPath, mobile } = this.props;
     const post = postNode.frontmatter;
-    const url = config.siteUrl + config.pathPrefix + postPath;
+    const url = config.siteUrl + postPath;
     const {
       FacebookShareButton,
       GooglePlusShareButton,

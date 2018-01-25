@@ -5,6 +5,7 @@ module.exports = {
   siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
   siteUrl: "https://blog.micaelrobles.com", // Domain of your website without pathPrefix.
   siteDescription: "A GatsbyJS stater with Advanced design in mind.", // Website description used for RSS feeds/meta description tag.
+  pathPrefix: "/",
   siteRss: "/rss.xml", // Path to the RSS file.
   siteFBAppID: "", // FB Application ID for using app insights
   googleAnalyticsID: "UA-96011454-3", // GA tracking ID.
