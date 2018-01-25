@@ -1,6 +1,6 @@
 ---
 title: "Using WOW.js with Next.js"
-cover: "https://unsplash.it/400/300/?random?AngelsofMist"
+cover: "/headers/wow-n-next.jpg"
 category: "development"
 date: "24/01/2018"
 tags:
