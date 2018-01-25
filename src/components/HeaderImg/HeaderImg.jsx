@@ -5,7 +5,7 @@ import fetch from 'isomorphic-fetch'
 
 const getRandomImage = async () => {
   const json = await (await fetch('https://archillect-api.now.sh/random')).json()
-  return json.source;
+  return json.source.replace('http:', 'https:');
 }
 
 const HeaderImgContainer = styled.div`
