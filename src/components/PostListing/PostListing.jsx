@@ -15,6 +15,11 @@ const Post = styled.div`
         margin-top: 0.5em;
         color: ${STYLE_VARS.colors.accent};
       }
+      &:hover {
+        h1 {
+          text-decoration: underline;
+        }
+      }
       > * {
         margin: 0;
       }
