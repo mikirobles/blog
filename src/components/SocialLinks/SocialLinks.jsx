@@ -8,11 +8,13 @@ const SocialLinksContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin: 2em 0;
   svg {
     border-radius: 5px;
+  }
+  .SocialMediaShareCount {
+    margin-top: 0.5em;
   }
   .share-count {
     text-align: center;
